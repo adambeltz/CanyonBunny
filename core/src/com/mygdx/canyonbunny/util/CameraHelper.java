@@ -28,6 +28,9 @@ public class CameraHelper {
         position.y = target.getY() + target.getOriginY();
     }
 
+
+    // setPosition is called if there is no target.
+    // if there is a target the coords are adjusted in cameraHelper.update
     public void setPosition(float x, float y){
         this.position.set(x,y);
     }
@@ -58,6 +61,7 @@ public class CameraHelper {
 
     public boolean hasTarget(){
         // if there is a target object it will not be null, thus it will return true
+        // the target can be set to null so make the camera stop following
         return target != null;
     }
 
