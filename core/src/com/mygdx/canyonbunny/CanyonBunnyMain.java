@@ -1,11 +1,13 @@
-/// finished 134
+/// 158?
 
 package com.mygdx.canyonbunny;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
+import com.mygdx.canyonbunny.game.Assets;
 import com.mygdx.canyonbunny.game.WorldController;
 import com.mygdx.canyonbunny.game.WorldRenderer;
 
@@ -22,6 +24,9 @@ public class CanyonBunnyMain extends ApplicationAdapter {
 
 		// Set LibGDX log level to DEBUG
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
+
+		// Load assets
+		Assets.instance.init(new AssetManager());
 
 		// Initialize Controller and Renderer
 		worldController = new WorldController();
@@ -51,6 +56,7 @@ public class CanyonBunnyMain extends ApplicationAdapter {
 	@Override
 	public void dispose () {
 		worldRenderer.dispose();
+		Assets.instance.dispose();
 	}
 
 	@Override
