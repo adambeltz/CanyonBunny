@@ -10,5 +10,6 @@ public class DesktopLauncher {
 		new LwjglApplication(new CanyonBunnyMain(), config);
 		config.width = 800;
 		config.height = 480;
+
 	}
 }

@@ -16,6 +16,7 @@ public class CanyonBunnyMain extends ApplicationAdapter {
 	private WorldController worldController;
 	private WorldRenderer worldRenderer;
 
+
 	// For Android
 	private boolean paused;
 	
@@ -31,6 +32,9 @@ public class CanyonBunnyMain extends ApplicationAdapter {
 		// Initialize Controller and Renderer
 		worldController = new WorldController();
 		worldRenderer = new WorldRenderer(worldController);
+
+
+
 
 
 	}

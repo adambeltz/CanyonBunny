@@ -15,6 +15,8 @@ public class WorldRenderer implements Disposable {
     private WorldController worldController;
 
 
+
+
     public WorldRenderer(WorldController worldController){
         this.worldController = worldController;
         init();
@@ -27,6 +29,7 @@ public class WorldRenderer implements Disposable {
         camera = new OrthographicCamera(Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT);
         camera.position.set(0,0,0);
         camera.update();
+
     }
 
     public void render(){
@@ -41,6 +44,8 @@ public class WorldRenderer implements Disposable {
         for (Sprite sprite : worldController.testSprites){
             sprite.draw(batch);
         }
+
+
         batch.end();
     }
 
