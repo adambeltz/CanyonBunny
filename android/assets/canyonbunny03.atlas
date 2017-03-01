@@ -1,81 +1,82 @@
-canyonbunny.png
-size: 1000, 806
+
+canyonbunny03.png
+size: 2048,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 bunny_head
   rotate: false
-  xy: 283, 0
+  xy: 1003, 71
   size: 122, 82
   orig: 122, 82
   offset: 0, 0
   index: -1
 cloud01
   rotate: false
-  xy: 405, 0
+  xy: 1356, 433
   size: 178, 78
   orig: 178, 78
   offset: 0, 0
   index: -1
 cloud02
   rotate: false
-  xy: 765, 0
+  xy: 1156, 423
   size: 198, 88
   orig: 198, 88
   offset: 0, 0
   index: -1
 cloud03
   rotate: false
-  xy: 583, 0
+  xy: 1156, 336
   size: 182, 85
   orig: 182, 85
   offset: 0, 0
   index: -1
 item_feather
   rotate: false
-  xy: 32, 0
+  xy: 1536, 471
   size: 46, 40
   orig: 46, 40
   offset: 0, 0
   index: -1
 item_gold_coin
   rotate: false
-  xy: 78, 0
+  xy: 1, 1
   size: 56, 56
   orig: 56, 56
   offset: 0, 0
   index: -1
 mountain_left
   rotate: false
-  xy: 0, 356
+  xy: 1, 286
   size: 1000, 225
   orig: 1000, 225
   offset: 0, 0
   index: -1
 mountain_right
   rotate: false
-  xy: 0, 581
+  xy: 1, 59
   size: 1000, 225
   orig: 1000, 225
   offset: 0, 0
   index: -1
 rock_edge
   rotate: false
-  xy: 134, 0
+  xy: 1091, 155
   size: 63, 356
   orig: 63, 356
   offset: 0, 0
   index: -1
 rock_middle
   rotate: false
-  xy: 197, 0
+  xy: 1003, 155
   size: 86, 356
   orig: 86, 356
   offset: 0, 0
   index: -1
 water_overlay
   rotate: false
-  xy: 0, 0
+  xy: 1156, 174
   size: 32, 160
   orig: 32, 160
   offset: 0, 0
