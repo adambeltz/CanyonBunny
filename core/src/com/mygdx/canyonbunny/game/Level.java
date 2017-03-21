@@ -5,12 +5,19 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.canyonbunny.game.objects.AbstractGameObject;
+import com.mygdx.canyonbunny.game.objects.BunnyHead;
 import com.mygdx.canyonbunny.game.objects.Clouds;
+import com.mygdx.canyonbunny.game.objects.Feather;
+import com.mygdx.canyonbunny.game.objects.GoldCoin;
 import com.mygdx.canyonbunny.game.objects.Mountains;
 import com.mygdx.canyonbunny.game.objects.Rock;
 import com.mygdx.canyonbunny.game.objects.WaterOverlay;
 
 public class Level {
+
+    public BunnyHead bunnyHead;
+    public Array<GoldCoin> goldCoins;
+    public Array<Feather> feathers;
 
     public static final String TAG = Level.class.getName();
 
@@ -50,8 +57,14 @@ public class Level {
     }
 
     public void init(String filename){
+        // Player character
+        bunnyHead = null;
+
+
         // objects
         rocks = new Array<Rock>();
+        goldCoins = new Array<GoldCoin>();
+        feathers = new Array<Feather>();
 
         // load image file that represents the level data
         Pixmap pixmap = new Pixmap(Gdx.files.internal(filename));
@@ -90,12 +103,24 @@ public class Level {
                 }
                 // player spawn point
                 else if (BLOCK_TYPE.PLAYER_SPAWNPOINT.sameColor(currentPixel)){
+                    obj = new BunnyHead();
+                    offsetHeight = -3.0f;
+                    obj.position.set(pixelX, baseHeight * obj.dimension.y + offsetHeight);
+                    bunnyHead = (BunnyHead)obj;
                 }
                 // feather
                 else if (BLOCK_TYPE.ITEM_FEATHER.sameColor(currentPixel)){
+                    obj = new Feather();
+                    offsetHeight = -1.5f;
+                    obj.position.set(pixelX, baseHeight * obj.dimension.y + offsetHeight);
+                    feathers.add((Feather)obj);
                 }
                 // gold coin
                 else if (BLOCK_TYPE.ITEM_GOLD_COIN.sameColor(currentPixel)){
+                    obj = new GoldCoin();
+                    offsetHeight = -1.5f;
+                    obj.position.set(pixelX, baseHeight * obj.dimension.y + offsetHeight);
+                    goldCoins.add((GoldCoin)obj);
                 }
                 // unknown object/pixel color
                 else {
@@ -134,11 +159,41 @@ public class Level {
             rock.render(batch);
         }
 
+        // Draw Gold Coins
+        for (GoldCoin goldCoin : goldCoins){
+            goldCoin.render(batch);
+        }
+
+        // Draw Feathers
+        for (Feather feather : feathers){
+            feather.render(batch);
+        }
+
+        // Draw Player Character
+        bunnyHead.render(batch);
+
         // Draw Water Overlay
         waterOverlay.render(batch);
 
         // Draw clouds
         clouds.render(batch);
+    }
+
+    public void update(float deltaTime){
+        bunnyHead.update(deltaTime);
+        for(Rock rock : rocks){
+            rock.update(deltaTime);
+        }
+
+        for (GoldCoin goldCoin : goldCoins){
+            goldCoin.update(deltaTime);
+        }
+
+        for (Feather feather : feathers){
+            feather.update(deltaTime);
+        }
+        clouds.update(deltaTime);
+
     }
 
 

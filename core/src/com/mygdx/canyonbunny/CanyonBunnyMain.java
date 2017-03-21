@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.mygdx.canyonbunny.game.Assets;
 import com.mygdx.canyonbunny.game.WorldController;
 import com.mygdx.canyonbunny.game.WorldRenderer;
+import com.mygdx.canyonbunny.util.Constants;
 
 public class CanyonBunnyMain extends ApplicationAdapter {
 	private static final String TAG = CanyonBunnyMain.class.getName();
@@ -42,6 +43,11 @@ public class CanyonBunnyMain extends ApplicationAdapter {
 	@Override
 	public void render () {
 
+		if (Constants.isRunning == false){
+			dispose();
+			create();
+			Constants.isRunning = true;
+		}
 		// Do not update the game world if paused
 		if (!paused) {
 			// Update game world by the time that has passed since last rendered time
